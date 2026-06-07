@@ -1,0 +1,277 @@
+{
+  "productName": "螺纹钢",
+  "dataSource": "Wind万得金融数据+西本新干线+中国联合钢铁网+国家统计局",
+  "indicatorCodes": {
+    "production": "S5706262 (中国:产量:螺纹钢)",
+    "capacityUtilization": "S5713311 (中国:产能利用率:螺纹钢:主要钢厂:月:平均值)",
+    "operatingRate": "S5713303 (中国:开工率:螺纹钢:主要钢厂:月:平均值)",
+    "crudeSteelOutput": "S0027374 (中国:产量:粗钢:当月值)",
+    "eafUtilization": "S5715660 (中国:产能利用率:电炉:月:平均值)",
+    "bfUtilization": "O2244511 (中国:高炉炼铁产能利用率(247家):月:平均值)",
+    "ferrousMetalUtilization": "M5792268 (中国:工业产能利用率:黑色金属冶炼及压延加工业:当季值)"
+  },
+  "monthlyProduction": [
+    {
+      "month": "2023-06",
+      "production": 2061.8,
+      "capacity": 3454.0,
+      "utilizationRate": 59.686
+    },
+    {
+      "month": "2023-07",
+      "production": 2015.1,
+      "capacity": 3324.0,
+      "utilizationRate": 60.625
+    },
+    {
+      "month": "2023-08",
+      "production": 1877.9,
+      "capacity": 3225.0,
+      "utilizationRate": 58.2275
+    },
+    {
+      "month": "2023-09",
+      "production": 1862.4,
+      "capacity": 3322.0,
+      "utilizationRate": 56.07
+    },
+    {
+      "month": "2023-10",
+      "production": 1825.1,
+      "capacity": 3252.0,
+      "utilizationRate": 56.13
+    },
+    {
+      "month": "2023-11",
+      "production": 1801.0,
+      "capacity": 3212.0,
+      "utilizationRate": 56.0725
+    },
+    {
+      "month": "2023-12",
+      "production": 1764.4,
+      "capacity": 3114.0,
+      "utilizationRate": 56.66
+    },
+    {
+      "month": "2024-01",
+      "production": 1658.4,
+      "capacity": 3194.0,
+      "utilizationRate": 51.9175
+    },
+    {
+      "month": "2024-02",
+      "production": 1551.5,
+      "capacity": 3554.0,
+      "utilizationRate": 43.65
+    },
+    {
+      "month": "2024-03",
+      "production": 1778.7,
+      "capacity": 3789.0,
+      "utilizationRate": 46.94
+    },
+    {
+      "month": "2024-04",
+      "production": 1634.3,
+      "capacity": 3457.0,
+      "utilizationRate": 47.2725
+    },
+    {
+      "month": "2024-05",
+      "production": 1798.6,
+      "capacity": 3502.0,
+      "utilizationRate": 51.36
+    },
+    {
+      "month": "2024-06",
+      "production": 1824.0,
+      "capacity": 3538.0,
+      "utilizationRate": 51.5525
+    },
+    {
+      "month": "2024-07",
+      "production": 1564.5,
+      "capacity": 3158.0,
+      "utilizationRate": 49.5375
+    },
+    {
+      "month": "2024-08",
+      "production": 1255.3,
+      "capacity": 3347.0,
+      "utilizationRate": 37.5
+    },
+    {
+      "month": "2024-09",
+      "production": 1531.4,
+      "capacity": 3646.0,
+      "utilizationRate": 42.0075
+    },
+    {
+      "month": "2024-10",
+      "production": 1771.6,
+      "capacity": 3378.0,
+      "utilizationRate": 52.44
+    },
+    {
+      "month": "2024-11",
+      "production": 1674.5,
+      "capacity": 3258.0,
+      "utilizationRate": 51.4
+    },
+    {
+      "month": "2024-12",
+      "production": 1614.0,
+      "capacity": 3354.0,
+      "utilizationRate": 48.1175
+    },
+    {
+      "month": "2025-01",
+      "production": 1548.63,
+      "capacity": 3658.0,
+      "utilizationRate": 42.34
+    },
+    {
+      "month": "2025-02",
+      "production": 1398.77,
+      "capacity": 3376.0,
+      "utilizationRate": 41.4325
+    },
+    {
+      "month": "2025-03",
+      "production": 1861.1,
+      "capacity": 3783.0,
+      "utilizationRate": 49.1975
+    },
+    {
+      "month": "2025-04",
+      "production": 1730.0,
+      "capacity": 3422.0,
+      "utilizationRate": 50.5625
+    },
+    {
+      "month": "2025-05",
+      "production": 1688.4,
+      "capacity": 3377.0,
+      "utilizationRate": 49.99794
+    },
+    {
+      "month": "2025-06",
+      "production": 1658.3,
+      "capacity": 3535.0,
+      "utilizationRate": 46.91
+    },
+    {
+      "month": "2025-07",
+      "production": 1518.2,
+      "capacity": 3226.0,
+      "utilizationRate": 47.065
+    },
+    {
+      "month": "2025-08",
+      "production": 1541.2,
+      "capacity": 3231.0,
+      "utilizationRate": 47.696
+    },
+    {
+      "month": "2025-09",
+      "production": 1475.0,
+      "capacity": 3171.0,
+      "utilizationRate": 46.515
+    },
+    {
+      "month": "2025-10",
+      "production": 1434.0,
+      "capacity": 3175.0,
+      "utilizationRate": 45.17
+    },
+    {
+      "month": "2025-11",
+      "production": 1375.1,
+      "capacity": 3051.0,
+      "utilizationRate": 45.075
+    },
+    {
+      "month": "2025-12",
+      "production": 1355.9,
+      "capacity": 3370.0,
+      "utilizationRate": 40.2325
+    },
+    {
+      "month": "2026-01",
+      "production": 1413.92,
+      "capacity": 3304.0,
+      "utilizationRate": 42.795
+    },
+    {
+      "month": "2026-02",
+      "production": 1277.08,
+      "capacity": 3325.0,
+      "utilizationRate": 38.4133
+    },
+    {
+      "month": "2026-03",
+      "production": 1541.5,
+      "capacity": 3653.0,
+      "utilizationRate": 42.195
+    },
+    {
+      "month": "2026-04",
+      "production": 1511.2,
+      "capacity": 3241.0,
+      "utilizationRate": 46.63
+    }
+  ],
+  "trendEquation": "y = -14.16x + 1874.81 (x为月份序号,0=2023-06)",
+  "trendSlopeMonthly": -14.16,
+  "trendSlopeAnnual": -169.93,
+  "avgYoYGrowth": -9.07,
+  "yearlySummary": {
+    "2023": {
+      "totalProduction": 13207.7,
+      "averageMonthly": 1886.8,
+      "months": 7
+    },
+    "2024": {
+      "totalProduction": 19656.8,
+      "averageMonthly": 1638.1,
+      "months": 12
+    },
+    "2025": {
+      "totalProduction": 18584.6,
+      "averageMonthly": 1548.7,
+      "months": 12
+    },
+    "2026": {
+      "totalProduction": 5743.7,
+      "averageMonthly": 1435.9,
+      "months": 4
+    }
+  },
+  "estimatedEffectiveCapacity": {
+    "averageMonthly": 3371.0,
+    "maxMonthly": 3789.0,
+    "minMonthly": 3051.0,
+    "annualized": 40449.0,
+    "unit": "万吨/月(估算值=产量/产能利用率)"
+  },
+  "ferrousMetalCapacityUtilization": {
+    "2023Q1": 78.1,
+    "2023Q2": 79.0,
+    "2023Q3": 79.1,
+    "2023Q4": 76.41,
+    "2024Q1": 77.33,
+    "2024Q2": 79.7,
+    "2024Q3": 77.4,
+    "2024Q4": 78.1,
+    "2025Q1": 79.3,
+    "2025Q2": 80.8,
+    "2025Q3": 80.1,
+    "2025Q4": 78.5,
+    "2026Q1": 78.09,
+    "unit": "%",
+    "source": "国家统计局(M5792268)"
+  },
+  "capacityForecast": "中国钢铁行业持续推进产能产量双控政策。2024-2026年粗钢产量调控延续平控基调,年度粗钢产量预计维持在10亿吨左右。螺纹钢方面:1)短流程电炉产能占比逐步提升(当前电炉产能利用率均值约49%);2)长流程高炉产能利用率(247家)均值约88%,呈季节性波动;3)螺纹钢主要钢厂产能利用率均值从2023年的58%降至2025-2026年的44%,反映需求下行周期中产能主动收缩;4)2025年以来的产能利用率中枢较2023年下降了约14个百分点,显示行业正在经历产能出清;5)建筑钢材需求受房地产下行拖累,预计未来1-2年螺纹钢有效产能将继续收缩。",
+  "notes": "1)产量数据来源:西本新干线(S5706262),单位万吨;2)产能利用率来源:Wind(S5713311),为主要钢厂月度平均值;3)有效产能为估算值(产量/产能利用率),非官方公布的设计产能;4)Wind EDB中未找到螺纹钢专项设计产能和有效产能的月度时间序列指标,故采用产量/利用率反推;5)开工率数据(S5713303)可作为产能利用率的辅助验证;6)黑色金属冶炼及压延加工业产能利用率(国家统计局季度数据)作为行业宏观参考;7)2026年数据截至4月,后续月份Wind含部分预测值。"
+}
