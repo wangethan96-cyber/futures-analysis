@@ -8,11 +8,21 @@ export const meta = {
 }
 
 const { symbol, windCode, period } = args
-const years = period ? parseInt(period) : 3
+
+// 必填参数校验
+if (!symbol || !windCode) {
+  log('错误：缺少必要参数 symbol 或 windCode')
+  return '## 错误：无法生成供需平衡表，缺少必要参数（symbol、windCode）'
+}
+
+const parsed = parseInt(period)
+const years = (!isNaN(parsed) && parsed > 0) ? parsed : 3
 
 phase('数据采集')
 
-const [production, trade, consumption, inventory] = await parallel([
+let production, trade, consumption, inventory
+try {
+  [production, trade, consumption, inventory] = await parallel([
   () => agent(
     `你是期货基本面数据专家。请通过 wind-mcp-skill 获取 **${symbol}**（Wind代码：${windCode}）的**国内产量数据**。
 
@@ -111,12 +121,20 @@ const [production, trade, consumption, inventory] = await parallel([
 }`,
     { label: '库存数据', phase: '数据采集' }
   ),
-])
+    ]
+  )
+} catch (e) {
+  log(`数据采集阶段异常：${e.message}`)
+}
 
 // Filter out nulls from skipped agents
 const validResults = [production, trade, consumption, inventory].filter(Boolean)
+if (validResults.length === 0) {
+  log('错误：所有数据源均获取失败，无法生成报告')
+  return `## 数据获取失败\n\n${symbol} 的产量、进出口、消费、库存数据均无法获取。请检查参数或网络连接后重试。`
+}
 if (validResults.length < 2) {
-  log('⚠️ 数据获取不完整，仅基于已有数据生成报告')
+  log('⚠️ 数据获取不完整（仅获取到 1/4 数据源），仅基于已有数据生成报告')
 }
 
 phase('平衡表汇总')
