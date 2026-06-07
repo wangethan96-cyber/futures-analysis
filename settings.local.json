@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git worktree *)",
+      "Bash(Write-Output \"---prune done---\")",
+      "Bash(git branch *)",
+      "Bash(cmd.exe /c \"rmdir /s /q .trees\")",
+      "Bash(mv .trees/ui_feature/.claude .trees/ui_feature/_claude)",
+      "Bash(mv .trees/quality_feature/.claude .trees/quality_feature/_claude)",
+      "Bash(cmd.exe /c \"rmdir /s /q C:\\\\Users\\\\ethan\\\\Desktop\\\\测试文件\\\\.trees\")",
+      "Workflow(futures-production)"
+    ]
+  }
+}

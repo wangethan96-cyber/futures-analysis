@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "futures-analysis": {
+      "path": ".claude/skills/futures-analysis.md",
+      "description": "期货基本面分析 — 供需、季节性、产量预测、价格趋势"
+    }
+  },
+  "workflows": {
+    "futures-supply-demand": {
+      "path": ".claude/workflows/futures-supply-demand.js",
+      "description": "供需平衡表分析"
+    },
+    "futures-seasonal": {
+      "path": ".claude/workflows/futures-seasonal.js",
+      "description": "季节性分析"
+    },
+    "futures-production": {
+      "path": ".claude/workflows/futures-production.js",
+      "description": "产量预测"
+    },
+    "futures-price-trend": {
+      "path": ".claude/workflows/futures-price-trend.js",
+      "description": "价格趋势预测"
+    }
+  }
+}
