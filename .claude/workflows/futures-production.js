@@ -7,7 +7,83 @@ export const meta = {
   ],
 }
 
-const { symbol, windCode, period, forecastMonths } = args
+// 品种中文名/简称 → { symbol, windCode } 映射表
+const PRODUCT_MAP = {
+  '螺纹':   { symbol: '螺纹钢',   windCode: 'RB.SHF' },
+  '螺纹钢':  { symbol: '螺纹钢',   windCode: 'RB.SHF' },
+  '热卷':   { symbol: '热轧卷板',  windCode: 'HC.SHF' },
+  '热轧卷板': { symbol: '热轧卷板',  windCode: 'HC.SHF' },
+  '铁矿':   { symbol: '铁矿石',   windCode: 'I.DCE' },
+  '铁矿石':  { symbol: '铁矿石',   windCode: 'I.DCE' },
+  '焦炭':   { symbol: '焦炭',     windCode: 'J.DCE' },
+  '焦煤':   { symbol: '焦煤',     windCode: 'JM.DCE' },
+  '动力煤':  { symbol: '动力煤',   windCode: 'ZC.ZCE' },
+  '甲醇':   { symbol: '甲醇',     windCode: 'MA.ZCE' },
+  'PTA':   { symbol: 'PTA',      windCode: 'TA.ZCE' },
+  '乙二醇':  { symbol: '乙二醇',   windCode: 'EG.DCE' },
+  '苯乙烯':  { symbol: '苯乙烯',   windCode: 'EB.DCE' },
+  '聚丙烯':  { symbol: '聚丙烯',   windCode: 'PP.DCE' },
+  '塑料':   { symbol: 'LLDPE',   windCode: 'L.DCE' },
+  'PVC':   { symbol: 'PVC',      windCode: 'V.DCE' },
+  '豆粕':   { symbol: '豆粕',     windCode: 'M.DCE' },
+  '豆油':   { symbol: '豆油',     windCode: 'Y.DCE' },
+  '棕榈油':  { symbol: '棕榈油',   windCode: 'P.DCE' },
+  '菜粕':   { symbol: '菜粕',     windCode: 'RM.ZCE' },
+  '菜油':   { symbol: '菜油',     windCode: 'OI.ZCE' },
+  '白糖':   { symbol: '白糖',     windCode: 'SR.ZCE' },
+  '棉花':   { symbol: '棉花',     windCode: 'CF.ZCE' },
+  '棉纱':   { symbol: '棉纱',     windCode: 'CY.ZCE' },
+  '苹果':   { symbol: '苹果',     windCode: 'AP.ZCE' },
+  '红枣':   { symbol: '红枣',     windCode: 'CJ.ZCE' },
+  '生猪':   { symbol: '生猪',     windCode: 'LH.DCE' },
+  '鸡蛋':   { symbol: '鸡蛋',     windCode: 'JD.DCE' },
+  '沪铜':   { symbol: '沪铜',     windCode: 'CU.SHF' },
+  '沪铝':   { symbol: '沪铝',     windCode: 'AL.SHF' },
+  '沪锌':   { symbol: '沪锌',     windCode: 'ZN.SHF' },
+  '沪镍':   { symbol: '沪镍',     windCode: 'NI.SHF' },
+  '沪锡':   { symbol: '沪锡',     windCode: 'SN.SHF' },
+  '沪铅':   { symbol: '沪铅',     windCode: 'PB.SHF' },
+  '沪银':   { symbol: '沪银',     windCode: 'AG.SHF' },
+  '沪金':   { symbol: '沪金',     windCode: 'AU.SHF' },
+  '不锈钢':  { symbol: '不锈钢',   windCode: 'SS.SHF' },
+  '纯碱':   { symbol: '纯碱',     windCode: 'SA.ZCE' },
+  '玻璃':   { symbol: '玻璃',     windCode: 'FG.ZCE' },
+  '尿素':   { symbol: '尿素',     windCode: 'UR.ZCE' },
+  '纸浆':   { symbol: '纸浆',     windCode: 'SP.SHF' },
+  '橡胶':   { symbol: '橡胶',     windCode: 'RU.SHF' },
+  '20号胶': { symbol: '20号胶',   windCode: 'NR.INE' },
+  '沥青':   { symbol: '沥青',     windCode: 'BU.SHF' },
+  '燃料油':  { symbol: '燃料油',   windCode: 'FU.SHF' },
+  '原油':   { symbol: '原油',     windCode: 'SC.INE' },
+  '硅铁':   { symbol: '硅铁',     windCode: 'SF.ZCE' },
+  '锰硅':   { symbol: '锰硅',     windCode: 'SM.ZCE' },
+  '玉米':   { symbol: '玉米',     windCode: 'C.DCE' },
+  '淀粉':   { symbol: '淀粉',     windCode: 'CS.DCE' },
+}
+
+// 解析参数：支持字符串简写（如 "螺纹"）或完整对象
+let symbol, windCode, period, forecastMonths
+
+if (typeof args === 'string') {
+  // 字符串模式：从映射表查找
+  const key = args.trim()
+  const mapping = PRODUCT_MAP[key]
+  if (!mapping) {
+    const supported = Object.keys(PRODUCT_MAP).filter((k, i, a) => a.indexOf(k) === i).join('、')
+    log(`错误：未识别品种 "${key}"，支持的品种：${supported}`)
+    return `## 错误：未识别品种 "${key}"\n\n请使用以下支持品种之一：${supported}\n\n或传入完整参数：\`{ symbol: "品种名", windCode: "代码.交易所" }\``
+  }
+  symbol = mapping.symbol
+  windCode = mapping.windCode
+} else if (typeof args === 'object' && args !== null) {
+  symbol = args.symbol
+  windCode = args.windCode
+  period = args.period
+  forecastMonths = args.forecastMonths
+} else {
+  log('错误：参数格式不正确，传入字符串（品种名）或对象 {symbol, windCode}')
+  return '## 错误：无法生成产量预测，缺少必要参数（symbol、windCode）'
+}
 
 // 必填参数校验
 if (!symbol || !windCode) {
